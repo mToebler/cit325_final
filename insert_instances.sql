@@ -5,6 +5,9 @@
 || Description: Inserts 21 object type instances into table for final project.
 */
 
+/* Write to log file. */
+SPOOL insert_instances.txt
+
 INSERT INTO tolkien VALUES(tolkien_s.nextval, MAN_T('Boromir'));
 INSERT INTO tolkien VALUES(tolkien_s.nextval, MAN_T('Faramir'));
 INSERT INTO tolkien VALUES(tolkien_s.nextval, HOBBIT_T('Bilbo'));
@@ -26,6 +29,8 @@ INSERT INTO tolkien VALUES(tolkien_s.nextval, MAIA_T('Radagast the Brown'));
 INSERT INTO tolkien VALUES(tolkien_s.nextval, MAIA_T('Saruman the White'));
 INSERT INTO tolkien VALUES(tolkien_s.nextval, GOBLIN_T('The Great Goblin'));
 INSERT INTO tolkien VALUES(tolkien_s.nextval, MAN_T('Aragorn'));
+
+SPOOL OFF
 
 QUIT
 -- just assumming
