@@ -15,7 +15,6 @@
 
 -- conditionally drop the base_t object, sub types and sequence
 -- using an implicit cursor in a for loop
---
 BEGIN
    FOR i IN (SELECT   object_name
             ,        object_type
@@ -30,6 +29,20 @@ BEGIN
    END LOOP;
 END;
 /
+
+-- my base_t relies up on the tolkien sequence. if it doesn't exist, 
+-- it will create it
+BEGIN
+   FOR i IN (SELECT count(object_name) as count FROM user_objects 
+            WHERE REGEXP_LIKE(object_name,'^tolkien.*$','i') 
+            AND object_type = 'SEQUENCE') LOOP
+      IF i.count = 0 THEN
+         EXECUTE IMMEDIATE 'CREATE SEQUENCE tolkien_s START WITH 1001';
+      END IF;
+   END LOOP;
+END;
+/
+
 
 -- CREATE SEQUENCE tolkien_s;
 
