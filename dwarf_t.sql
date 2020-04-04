@@ -32,7 +32,7 @@ IS
    ) RETURN SELF AS RESULT
    IS
    BEGIN
-      self.oid := tolkien_s.currval - 1000      
+      self.oid := tolkien_s.currval - 1000;
       (self as base_t).set_oname('Dwarf');
       -- self.oname := 'Dwarf';
       self.name := name;
