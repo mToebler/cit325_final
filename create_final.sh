@@ -3,7 +3,8 @@
 # Assign user and password
 username="student"
 password="student"
-directory="/home/student/Data/cit325/final"
+#directory="/home/student/Data/cit325/final"
+directory="/home/student/Data/cit325/final/git/cit325_final"
 
 echo "User name:" ${username}
 echo "Password: " ${password}
