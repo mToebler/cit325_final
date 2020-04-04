@@ -30,7 +30,7 @@ IS
      ) RETURN SELF AS RESULT
    IS
    BEGIN
-      self.oid     := tolkien_s.currval - 1000      
+      self.oid := tolkien_s.currval - 1000;
       (self AS base_t).set_oname('Elf');
       self.name    := name;
       (self AS  elf_t).set_genus('Elves');
