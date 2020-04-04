@@ -5,6 +5,21 @@
 || Description: Sub-type of base_t
 */
 
+-- need to conditionaly drop the subtypes here
+BEGIN
+   FOR i IN (SELECT   object_name
+            ,        object_type
+            FROM     user_objects
+            WHERE    REGEXP_LIKE(object_name,'^elf_t_t.*$','i')
+            ORDER BY 2 DESC) LOOP
+      IF i.object_type = 'TYPE' THEN
+         EXECUTE IMMEDIATE 'DROP TYPE '||i.object_name||' FORCE';
+      END IF;
+   END LOOP;
+END;
+/
+
+
 -- Now using dwarf_t.sql as template
 CREATE OR REPLACE
    TYPE elf_t UNDER base_t
