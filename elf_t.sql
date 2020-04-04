@@ -10,7 +10,7 @@ BEGIN
    FOR i IN (SELECT   object_name
             ,        object_type
             FROM     user_objects
-            WHERE    REGEXP_LIKE(object_name,'^elf_t.*$','i')
+            WHERE    object_name IN ('ELF_T', 'SILVAN_T', 'SINDAR_T', 'NOLDOR_T', 'TELERI_T'))
             ORDER BY 2 DESC) LOOP
       IF i.object_type = 'TYPE' THEN
          EXECUTE IMMEDIATE 'DROP TYPE '||i.object_name||' FORCE';
