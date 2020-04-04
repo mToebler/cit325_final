@@ -13,6 +13,9 @@
 ||              would have been handly. Good final project. 
 */
 
+-- just gonna do it
+DROP TABLE tolkien;
+
 -- dropping elf and sub types there first
 BEGIN
     FOR i IN (SELECT   object_name

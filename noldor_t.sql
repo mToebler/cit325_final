@@ -15,6 +15,7 @@ CREATE OR REPLACE
      ) RETURN SELF AS RESULT
    , MEMBER FUNCTION get_elfkind RETURN VARCHAR2
    , MEMBER PROCEDURE set_elfkind(elfkind VARCHAR2)
+   , OVERRIDING MEMBER FUNCTION to_string RETURN VARCHAR2 
    ) INSTANTIABLE NOT FINAL;
 /
 
@@ -52,7 +53,11 @@ IS
    END set_elfkind;
 
    /* Using to_string() method in base_t*/
-   
+   OVERRIDING MEMBER FUNCTION to_string RETURN VARCHAR2 
+   IS
+   BEGIN
+      RETURN (self AS base_t).to_string||'['||self.get_elfkind||']';
+   END to_string;
 END;
 /
 
