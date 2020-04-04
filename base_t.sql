@@ -79,7 +79,7 @@ IS
    BEGIN
       IF oid IS NULL THEN
          -- keeping this from the instructional material
-         oid_val := tolkien_s.currval - 1000      
+         oid_val := tolkien_s.currval - 1000;
       ELSE   
          oid_val := oid;
       END IF;
