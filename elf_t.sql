@@ -11,7 +11,7 @@ BEGIN
             ,        object_type
             FROM     user_objects
             WHERE    object_name IN ('ELF_T', 'SILVAN_T', 'SINDAR_T', 'NOLDOR_T', 'TELERI_T'))
-            ORDER BY 2 DESC) LOOP
+            ORDER BY 1) LOOP
       IF i.object_type = 'TYPE' THEN
          EXECUTE IMMEDIATE 'DROP TYPE '||i.object_name||' FORCE';
       END IF;
